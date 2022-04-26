@@ -16,9 +16,7 @@
 
 ## Diagram
 
-<p align="center">
-  <img src="diagram.png" alt="deployment diagram"/>
-</p>
+![diagram](diagram.png)
 
 
 
