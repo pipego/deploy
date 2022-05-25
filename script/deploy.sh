@@ -1,24 +1,24 @@
 #!/bin/bash
 
 if [ "$1" = "start" ]; then
-  docker-compose -f compose.yml pull
+  docker-compose -f deploy.yml pull
   ret=$?
   if [ $ret -ne 0 ]; then
     exit $ret
   fi
-  docker-compose -f compose.yml up -d
+  docker-compose -f deploy.yml up -d
   ret=$?
   if [ $ret -ne 0 ]; then
     exit $ret
   fi
 elif [ "$1" = "stop" ]; then
-  docker-compose -f compose.yml stop
+  docker-compose -f deploy.yml stop
   ret=$?
   if [ $ret -ne 0 ]; then
     exit $ret
   fi
 elif [ "$1" = "clean" ]; then
-  docker-compose -f compose.yml rm -f
+  docker-compose -f deploy.yml rm -f
   ret=$?
   if [ $ret -ne 0 ]; then
     exit $ret
