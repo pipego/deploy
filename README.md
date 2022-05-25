@@ -10,10 +10,6 @@
 
 
 
-## Prerequisites
-
-
-
 ## Diagram
 
 ![diagram](diagram.png)
@@ -26,18 +22,35 @@
 
 
 
-## Run
+## Deploy
 
 ```bash
-TBD
+cd script
+
+# Start
+./deploy.sh start
+
+# Stop
+./deploy.sh stop
+
+# Clean
+./deploy.sh clean
 ```
 
 
 
-## Docker
+## Test
 
 ```bash
-TBD
+cd script
+
+# Docker mode
+./test.sh docker pull
+./test.sh docker run
+
+# Host mode
+./test.sh host pull
+./test.sh host run
 ```
 
 
@@ -45,7 +58,3 @@ TBD
 ## License
 
 Project License can be found [here](LICENSE).
-
-
-
-## Reference
