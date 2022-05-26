@@ -29,10 +29,12 @@ elif [ "$1" = "host" ]; then
     if [ $ret -ne 0 ]; then
       exit $ret
     fi
-    mv pipego-demo-*/config/config.yml demo.yml
+    mv pipego-demo-*/config/config.yml .
+    mv pipego-demo-*/test/data/runner.json .
+    mv pipego-demo-*/test/data/scheduler.json .
     rm -rf pipego-demo-*
   elif [ "$2" = "run" ]; then
-    chmod +x demo; ./demo --config-file=demo.yml
+    chmod +x demo; ./demo --config-file=config.yml --runner-file=runner.json --scheduler-file=scheduler.json
     ret=$?
     if [ $ret -ne 0 ]; then
       exit $ret
