@@ -1,5 +1,7 @@
 #!/bin/bash
 
+os=$(go env GOOS)
+
 if [ "$1" = "docker" ]; then
   if [ "$2" = "pull" ]; then
     docker pull ghcr.io/pipego/demo:latest
@@ -16,7 +18,7 @@ if [ "$1" = "docker" ]; then
   fi
 elif [ "$1" = "host" ]; then
   if [ "$2" = "pull" ]; then
-    URL=$(curl -L -s https://api.github.com/repos/pipego/demo/releases/latest | grep -o -E "https://(.*)demo_(.*)_linux_amd64.tar.gz")
+    URL=$(curl -L -s https://api.github.com/repos/pipego/demo/releases/latest | grep -o -E "https://(.*)demo_(.*)_${os}_amd64.tar.gz")
     curl -L -s "$URL" | tar xvz -C .
     ret=$?
     if [ $ret -ne 0 ]; then
