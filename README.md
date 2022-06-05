@@ -39,18 +39,18 @@ cd script
 
 
 
-## Demo
+## CLI
 
 ```bash
 cd script
 
 # Docker mode
-./demo.sh docker pull
-./demo.sh docker run
+./cli.sh docker pull
+./cli.sh docker run
 
 # Host mode
-./demo.sh host pull
-./demo.sh host run
+./cli.sh host pull
+./cli.sh host run
 ```
 
 

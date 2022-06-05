@@ -4,13 +4,13 @@ os=$(go env GOOS)
 
 if [ "$1" = "docker" ]; then
   if [ "$2" = "pull" ]; then
-    docker pull ghcr.io/pipego/demo:latest
+    docker pull ghcr.io/pipego/cli:latest
     ret=$?
     if [ $ret -ne 0 ]; then
       exit $ret
     fi
   elif [ "$2" = "run" ]; then
-    docker run --rm ghcr.io/pipego/demo:latest
+    docker run --rm ghcr.io/pipego/cli:latest
     ret=$?
     if [ $ret -ne 0 ]; then
       exit $ret
@@ -18,25 +18,25 @@ if [ "$1" = "docker" ]; then
   fi
 elif [ "$1" = "host" ]; then
   if [ "$2" = "pull" ]; then
-    URL=$(curl -L -s https://api.github.com/repos/pipego/demo/releases/latest | grep -o -E "https://(.*)demo_(.*)_${os}_amd64.tar.gz")
+    URL=$(curl -L -s https://api.github.com/repos/pipego/cli/releases/latest | grep -o -E "https://(.*)cli_(.*)_${os}_amd64.tar.gz")
     curl -L -s "$URL" | tar xvz -C .
     ret=$?
     if [ $ret -ne 0 ]; then
       exit $ret
     fi
     rm -f LICENSE README.md
-    URL=$(curl -L -s https://api.github.com/repos/pipego/demo/releases/latest | grep -o -E "https://(.*)demo/tarball/v([0-9]{1,}\.)+[0-9]{1,}")
+    URL=$(curl -L -s https://api.github.com/repos/pipego/cli/releases/latest | grep -o -E "https://(.*)cli/tarball/v([0-9]{1,}\.)+[0-9]{1,}")
     curl -L -s "$URL" | tar xvz -C .
     ret=$?
     if [ $ret -ne 0 ]; then
       exit $ret
     fi
-    mv pipego-demo-*/config/config.yml .
-    mv pipego-demo-*/test/data/runner.json .
-    mv pipego-demo-*/test/data/scheduler.json .
-    rm -rf pipego-demo-*
+    mv pipego-cli-*/config/config.yml .
+    mv pipego-cli-*/test/data/runner.json .
+    mv pipego-cli-*/test/data/scheduler.json .
+    rm -rf pipego-cli-*
   elif [ "$2" = "run" ]; then
-    chmod +x demo; ./demo --config-file=config.yml --runner-file=runner.json --scheduler-file=scheduler.json
+    chmod +x cli; ./cli --config-file=config.yml --runner-file=runner.json --scheduler-file=scheduler.json
     ret=$?
     if [ $ret -ne 0 ]; then
       exit $ret
