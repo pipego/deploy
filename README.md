@@ -1,6 +1,6 @@
 # deploy
 
-[![License](https://img.shields.io/github/license/pipego/scheduler.svg)](https://github.com/pipego/scheduler/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/pipego/deploy.svg)](https://github.com/pipego/deploy/blob/main/LICENSE)
 
 
 
