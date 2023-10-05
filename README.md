@@ -22,6 +22,16 @@
 
 
 
+## Delivery
+
+```bash
+cd script
+
+./delivery.sh
+```
+
+
+
 ## Deploy
 
 ```bash
@@ -35,22 +45,6 @@ cd script
 
 # Clean
 ./deploy.sh clean
-```
-
-
-
-## CLI
-
-```bash
-cd script
-
-# Docker mode
-./cli.sh docker pull
-./cli.sh docker run
-
-# Host mode
-./cli.sh host pull
-./cli.sh host run
 ```
 
 

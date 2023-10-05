@@ -1,13 +1,17 @@
 version: '3'
 
 services:
-  pipego-scheduler:
-    image: ghcr.io/pipego/scheduler:latest
-    ports:
-      - "28082:28082"
   pipego-runner:
     image: ghcr.io/pipego/runner:latest
     ports:
       - "29090:29090"
+  pipego-scheduler:
+    image: ghcr.io/pipego/scheduler:latest
+    ports:
+      - "28082:28082"
+    depends_on:
+      - pipego-runner
+  pipego-cli:
+    image: ghcr.io/pipego/cli:latest
     depends_on:
       - pipego-scheduler
