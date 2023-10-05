@@ -1,11 +1,6 @@
 #!/bin/bash
 
-if [ "$1" = "start" ]; then
-  docker-compose -f deploy.yml pull
-  ret=$?
-  if [ $ret -ne 0 ]; then
-    exit $ret
-  fi
+if [ "$1" = "run" ]; then
   docker-compose -f deploy.yml up -d
   ret=$?
   if [ $ret -ne 0 ]; then
