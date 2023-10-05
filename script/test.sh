@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker run -it ghcr.io/pipego/cli:latest
+docker run -it --network=host ghcr.io/pipego/cli:latest
