@@ -27,7 +27,14 @@
 ```bash
 cd script
 
-./delivery.sh
+# Fetch
+./delivery.sh fetch
+
+# Build
+./delivery.sh build
+
+# Clean
+./delivery.sh clean
 ```
 
 
