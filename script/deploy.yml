@@ -3,11 +3,9 @@ version: '3'
 services:
   pipego-runner:
     image: ghcr.io/pipego/runner:latest
-    ports:
-      - "29090:29090"
+    network_mode: "host"
   pipego-scheduler:
     image: ghcr.io/pipego/scheduler:latest
-    ports:
-      - "28082:28082"
+    network_mode: "host"
     depends_on:
       - pipego-runner
