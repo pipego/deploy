@@ -22,46 +22,40 @@
 
 
 
-## Delivery
+## Run
+
+### Runner
 
 ```bash
-cd script
-
-# Fetch
-./delivery.sh fetch
-
-# Build
-./delivery.sh build
-
-# Clean
-./delivery.sh clean
+git clone https://github.com/pipego/runner.git
+cd runner/
+make build
+./bin/runner --listen-url=:29090
 ```
 
 
 
-## Deploy
+### Scheduler
 
 ```bash
-cd script
-
-# Run
-./deploy.sh run
-
-# Stop
-./deploy.sh stop
-
-# Clean
-./deploy.sh clean
+git clone https://github.com/pipego/scheduler.git
+cd scheduler/
+make build
+make plugin
+cp config/config.yml bin/
+cd bin/
+./scheduler --config-file=./config.yml --listen-url=:28082
 ```
 
 
 
-## Test
+### CLI
 
 ```bash
-cd script
-
-./test.sh
+git clone https://github.com/pipego/cli.git
+cd cli/
+make build
+./bin/cli --config-file=./test/config/config.yml --runner-file=./test/data/runner.json --scheduler-file=./test/data/scheduler1.json
 ```
 
 
