@@ -37,14 +37,24 @@ cd script
 ```bash
 cd script
 
-# Start
-./deploy.sh start
+# Run
+./deploy.sh run
 
 # Stop
 ./deploy.sh stop
 
 # Clean
 ./deploy.sh clean
+```
+
+
+
+## Test
+
+```bash
+cd script
+
+./test.sh
 ```
 
 

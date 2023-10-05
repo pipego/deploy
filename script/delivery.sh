@@ -9,7 +9,7 @@ if [ $ret -ne 0 ]; then
 fi
 
 pushd pipego-runner-*
-./script/docker.sh latest
+version=latest make docker
 docker push ghcr.io/pipego/runner:latest
 popd
 
@@ -24,7 +24,7 @@ if [ $ret -ne 0 ]; then
 fi
 
 pushd pipego-scheduler-*
-./script/docker.sh latest
+version=latest make docker
 docker push ghcr.io/pipego/scheduler:latest
 popd
 
@@ -39,7 +39,7 @@ if [ $ret -ne 0 ]; then
 fi
 
 pushd pipego-cli-*
-./script/docker.sh latest
+version=latest make docker
 docker push ghcr.io/pipego/cli:latest
 popd
 
